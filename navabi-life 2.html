@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Navabi Life</title>
+<meta name="description" content="A personal habit tracker and gym training log.">
+
+<!-- iOS: makes "Add to Home Screen" launch full-screen, app-like, with its own icon -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Navabi Life">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+
+<!-- Android / other browsers -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#17140F">
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,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">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIk5hdmFiaSBMaWZlIiwgInNob3J0X25hbWUiOiAiTmF2YWJpIExpZmUiLCAiZGVzY3JpcHRpb24iOiAiUGVyc29uYWwgaGFiaXQgdHJhY2tlciBhbmQgZ3ltIHRyYWluaW5nIGxvZyIsICJzdGFydF91cmwiOiAiLi8iLCAic2NvcGUiOiAiLi8iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwgImJhY2tncm91bmRfY29sb3IiOiAiIzE3MTQwRiIsICJ0aGVtZV9jb2xvciI6ICIjMTcxNDBGIiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTFFBQUFDMENBWUFBQUE5elFZeUFBQVVWa2xFUVZSNG5PMmRlWlFkVlpuQWY3ZXEzdDdkcnp2ZFdlaXdoTEFsSkVEQ0pvc0hHV1VZUll6RHFJTzRJQXhoTXlqakNZbGhrQXlpRE5KQ1VCakFDRVJCUnhCUWRBUzNNMnd5TWhDTnBFa2dCRUpDRnBKMHA5UGI2N2RYMVowLzZyMEFJVUNuWHBaNjFkL3ZuUHlUN25SWHp2bTlXOS85N25lL1Q0MXRTMnNFSVNRWWUvc0JCR0ZYSWtJTG9VS0VGa0tGQ0MyRUNoRmFDQlVpdEJBcVJHZ2hWSWpRUXFnUW9ZVlFJVUlMb1VLRUZrS0ZDQzJFQ2hGYUNCVWl0QkFxUkdnaFZJalFRcWdRb1lWUUlVSUxvVUtFRmtLRkNDMkVDaEZhQ0JVaXRCQXFSR2doVklqUVFxZ1FvWVZRSVVJTG9VS0VGa0tGQ0MyRUNoRmFDQlVpdEJBcVJHZ2hWSWpRUXFnUW9ZVlFJVUlMb1VLRUZrS0ZDQzJFQ2hGYUNCVWl0QkFxUkdnaFZJalFRcWdRb1lWUUlVSUxvVUtFRmtLRnRiY2ZRQWdtaGxJb0JhaktYMmh3dFVZSGZESzhDQzI4RGFWQUtVVytZRk8wM1cwQ0d3cGlFWk5FekF5MDJDSzBzQTNUVUJSS0RxV3l5K1FKVFp3NmZTempXdUlvQldzMlpYbXFzNXRYTjJSSXhTMGlsb0hyQnM5cU5iWXRIYnluRXZZNGhxRVl6SmFaTUM3RnYzNzZVRTZkUHBhR2hMVXQ1TkFhQm9aS1BQcnNSbTc5NWF2MERwWm9URmc0QVpOYWhCWXdEY1ZncnN3Wko3Uno5YmxUYUUzSEdNeVdjYmVMS3l4RDBaaUtzSzRyeTFWM3ZzQnpLN2JTbUlnRVNtckpjb3h3akVxWXNmL1lKUDkrM2xRYVV4YTltU0pLZWFLLzlZOEd0ZzRVMlhlMDk3M05EVkhLanV0dEhnT0NDRDJDVVFwY1Y1TXZPY3o3M09Ha0d5Sms4dzRSODkyMWlGZ0dmWmtTaCt6WHlNV2ZPSWlodkkwUklLTkY2QkdNUWxFc08zeDc1cEY4NUppeERHYkxXT2I3eXhteERESTVtek5QSHM5K1k1SVV5dzRxSUZLTDBDTVV5MVJzNlMveW1WUDM1MHNmblVEL1VCblRHTDZVdHUweU9oM2pwQ2x0RklvdU8vRlBkeXNpOUFqRU5CV0RPWnNaSDJ4bjd1Y20wOU5mMmltWndjdDZtSVppbjlZRWp0WnZIc0RzWlVUb0VZWnBLREk1bXduamtuem40cU8ycmF3QmlSaHFSb1FlUVJoS1VhcUVDamZObWs3RU5DaVYvV1VwbEFMYjFhenZ6bm1yZTBBeWR5TDBDRUVCR2swbVp6UG5uRWxNTzdpRlhOSEI4Qkg4YXUxdERMdDZDenp6WWcrSnFJSHI3dnBuOW9NSVBVSlFoaUpYY0xqNjNDbk1PSGs4UGYzRllXVTBkb1RqdURRa0xSNStlZ09iZXZKRUl5WTZJRXUwQ0QwQ01FMUZUMytSTTA1czU2SVpCekdRTFdQNmxsbVRib2l5ZlBVQWR6M3lHbzBwT1NrVTlpQ1dvUmpLMlp4MjdGaXVPVzhLZlptUzc0TVExOVVrNGlaOVF5WG1MMXBHdnVqc2RIWmtkeU5DaHhqRFVBd1ZiTWEweE9pNGRCcXhpSW5yYWwrYlFLM0JNZzBHaHNwY2ZPTmZXUHBxUDZtRUZiaUtPeEU2cENnRnR1UFMzQkJsd1dWSDA1U0lrQy81MndSNmFKcFNFZVl2V3NhU2xiMjBORVZ4bkdESkRDSjBpUEVPVDc0MTh3aE9PTHlWYk1IMkhSNDRyaVladCtpNGJ3VlBQTjlOYXpxR2JRY2tyYkVkSW5RSU1VMUZObTh6KzU4UDQrK21qYUduditoN0UyZzdtakhOTVI1OFlqM2ZmK2dWR2hKV0lGZm1LaUoweUxCTXhkYUJJcWRPSDgxWFAzVW8yWUxqUDZQaGFob1NGazkxYm1IQkF5OHpxaW1DRHVyZHF3b2lkSWd3VGNWUTN1YWtxYU81L3FLakdNeVY4WHVFNTJwTkltcVN5WldadDdDVG9id1hzZ1RjWnhFNkxCaEtrUzg2TkNZdE9pNlpSbU15Z3VOb1gyV2QxY0tqYk5IbThsditSbmR2Z1ZUY0NzeHA0SHNoUW9jQXBjRFJta1RNNU9iTGptWk1TNHhzM3ZhZDBkQmEwOUlZNHo5KzhoSi82dXltSVJtOHU0UHZoZ2dkQWd5bDZNdVUrTVlYcDNEcTlERmVlRkRESnJBaEdlR1doMWJ5eURNYkdkMGN4dzd3Sm5CN1JPZzZ4eks5QzY2enpqcUVNMDlxWjBzTk5ScTJveG5URXVPM3oyN2tocCt0SUJrM0EzZHc4bjZJMEhXTWFTcTJEcFk0ZmxJclY1eDlXRTFIMFY1R3crUXZLM3E1L3FjdmtXNklBQ29nSlVmRFI0U3VVMHhEa1N2WVREK2toWnN1bTA2aDVMNmo3Y0J3Y2JVbUdiUFkwbC9peXd2K1NuK21oR1VhZ1UvUjdRZ1J1ZzVSU2xFc3UwUXNnNDVManFJdEhhTmt1NzZLanJUMll2QkN5V0grb2hmWW1pa0Zza1pqdUlqUWRZWlNYcUcrWlNwdW1qV2RDZU5TWkxJN2Q4SDFyYml1cGkwZDQrWUhWdkxIeFp0cFNscDF0UW5jSGhHNnpqQ1VZbXQva2RsblQrTGpKN1F6bVBPZjBYQWNUV01xd3NML2ZvMzdIMS9MbUpiNnltanNDQkc2anJCTXIvL2NCV2NleE5rZjNvK3V2a0pOR1kzV2RKUS9kWFp6N1QzTFNVUk4zekY0a0JDaDZ3VFRWUFJseWt5ZDJNeTh6MDJtVk5hK0MvVzk2am1UWmFzSHVHYlJjaG9TRnFvT2pyV0hnd2hkQnhpR2Q2dzk2WUJHYnJuOGFGeXRzVjEvdDdWZERmR29TVFp2TSt2bUpYVDFGUUxiR3RjUEluVEFVVXBoMnhxdE5kZGZkQ1RqUnljb2xueG1OUEJ1Zjd1dTVwb2ZMV2RqVDQ2R1pQMW1OSGFFQ0IxNE5DNmFqa3VtY2ZnQnpmUm4vRjl3ZFIzTjZPWVlQL2oxS2g1K2VnTk5xVWlnYTV2OUlFSUhtR3IvdVM5LzhtQSs5YUg5R013TnI1bmlqbkFjN3dyVnZYOVl3OTJQcm1aTVM2enVNeG83UW9RT0tKYXBHQmdxOC9uVER1QmZ6cGhJZDcvL2pJYmphRnFhb3Z4MVpTOVgzNzJNU01RSXhRWndSNGpRQWNRMEZBUFpNZ2VOYitDcWM2ZmdhbzN5MlEzUmNUWHhtTW1xRFVOY2RlY0x4Q0pHWFJUcSswV0VEaGlHb1NpVVhRNFltK0sycngxTHhQTGZmMDVyaUVZTUhFZnpsZTh0WVcxWGRsc3JnN0FpUWdjSXBiendvRlJ5K05ZRlIzRFErQWJ5UHZ2UGdYZEViaWpGdGZjc1o5WEdET21BZFRuYUhkUzEwTjVNUFFMVFBiNVdsRktVSFpmckxqeVM0eWUzMGpkWThuOFM2R3JHTk1lNTkvZHIrTm4vcktVcEZRbmxKbkI3NmxKb3cxQVlocUpVZGltVVhBb2xCL0JpejNwMTJ6SVYzWDBGenZ2b2dYemg5QWtNMXRoL3JpbHA4ZUNUNjduMWw2OHl1amtXdXZUY3UxRlhnemNOcGJ5V3NOa3lTaWttN0pNaVlpa1VpamQ2Y3ZSbFNxVGlsaGMzMXRHcjFhemNPdm1uVS9aajFsbUhzS1cvaUZGRDY0RjBRNFNYWGg5azNnODdpZmo4T2ZWSzNRaHRHSXBDMFVHaitkZ0o3WngxeXI0Y01URk4xUEplTXV1NnN6eTJwSnNISGw5SFYyK0JwcFJGUFRodFZ0SnpVeWFrNmJqa3FNb0gwVjlXdzNVMXNZakJoaTA1NXY1Z0tRWVFNZXZydzEwcmRURjQwMURldEtiMnRnUnp6cG5NNmNlTnczWTArYUs5TGYwVWl4Z2tZaWF2Yjg3U2NkL0xQUDYzTHVJQmFzUzlJNHhLekR5cU1jb2RzNDlqNGo0cENqNzd6Mm5lbk1mOTJXOCtRK2VxUHBvYm9pTktacWlER0ZvcEtOc3VUYWtJUDVyM0FVNC9kaHg5Z3lVeXVmTGJWdUI4eWFGbm9FUnJVNHlGVnh6SEdTZTAwek5RSW1JRjg3K29sSGYxYVNodjg0MXpwM0RFZ1duZkhmVUJ0S3VKV2liWC9lUWxscTN1cDZWeDVNa01kU0owdnVRdys3T1RHRDg2d2RaQnIwK2JhYno5cFd3b2hXVXF5clpMMzJDSk9lZE00dGpEUnRHYjJma0pUM3VDNnJXbmZ6OXZLaDgrZWl4YkJtcTdyVDI2SmNZdm5sclBva2RYMDVRY0dSbU5IUkZvb1EybHlPWWRqcHMwaWpOUGJHY3dhNy92aW1zWUN0dHhTYWNpTEx6aVdLWWQxRXd1WUkyNUxWUFIxVi9nTTZmdXo0V2ZPS2ptR28zR3BNV2p6M2l0QjlyUzBWQWZuTHdmZ1JaYUdWNlA0NDkrb0ozNFRweHdHWVlpWDNCb1RrVlo4SlhwSkdNR3hiS0RHWUNjWG5XczJzYyswTTZjY3lheHRiOVlVMGY5eHFURit1NGNjKy9vOUVLTTRBeWsyaXNFV21qSDBhUVNGc2NjMnVLTjM5MkpwelZOUlNadjA5NmFvT1BTNllDM0FmUGY4THQyVE1ON3B2M0hKbG53NWVsWXBwZUc5RmVvcjRsWUJsc0dpc3krN1htS3Rrc3N4RVZId3lYUVFsZnhxNkJWNmNaNTJqRmp1ZVdyUjZPMXQ4SGNHMUlyNWNYM3JVMVJPaTZaUmpSaVVDeTd2azg1RGFWSXhFem0zTkhwalllSW15TnlFN2c5Z1JkYTR4M2orc1Uwdk81Q0h6bG1MTi9icTFKckJySmw1cDR6bWVNbWo5b0ZIZlZOT3U1N21lZGU2bUZVT2pwaU40SGJFMmlocTUzb24xdXhsWGpVUlB2TUtWdW1ZdXRnOFowcjlSNktxYzNLak1CNW56K2NHU2VQcDd2bS9uTnhGdjEyRGJjOS9DcE55ZkRkT3FtRlFBdXRYZS9BNUhmUGJxeXBveVo0RTV5cUsvWDN2M3EwZDdkTys0dGZkKzczZXJkT3pqaGhIeTc3MUNGZVJxT1cvbk5KaThlV2JPYU9YNjJpdFNrYWl0WUR1NUpBQysxcVRTSm04Y0xxQVI1OGNqM3BWSVJ5RGNOcXJFcHp3NzgvZGh6ZnVYZ2FnN2t5aHZKYk92LytWRHZxZjJqYWFLNyswbFQ2Qm11YkVaaUtXL1QwRjduaTlxVVV5OTRoalBqOGRnSXROSGpOdDFNeGsxdC84UW9yMWc3U21xNnRjcXdhZnZ6RDhlTTQvMk1IZWdjMXV5R2VOZ3hGTG04ek9oMWp3V1ZIZTYxcGZiNFJ0SzRVTUdYTHpMN3RlVExac3RjWVJqYUI3NkFPaFBiQ2haTHRjdDcxei9IUWsrc1oxVlRic1c1MUlPVlZYNXpDK1dkTXBLZUd1dU1kVVMzVVR5VXNPaTZkUmpvVjhRcjFmYTdPR2sxVEtzbzM3bHJHTTh0N1NDWHFwNlArbmlid1FzT2JPZGVodk0yOGhaM2M5OWc2R21zNDNsVUFHakk1bS9ublR1SDhNdzZrWjZCVVU0eit0cCt2RkwyWkVwZC8rakJPT1dyTXRvRTdmbkFjVFdNaXd2Y2ZYTW5qejNmUmxnN25iZTFkUlYwSURaWFNTTXNnRlRlNTlzZkxXYkYya09hR0dxU3UrRFdZczduNlMxTzg4R09nVkhNNno0dWJ5M3p0TTRkeHptbjcxM1JidTlwUi80RW4xbkhqejEvMlpnVEt5dnllMUkzUTRBM0dNVTBEdzFCY2Zzc1MxbXdhb2lubGZ4QmtWZXBNMW1iK2VaN1VBMW4vZFJXbXFlZ1pLUEdobzhZdysrekRhbHVaWFM5aytmUHlIbTUrY0NYTkRWSFpBQTZEdWhJYTNpeGlmMk5MbnBrZGYySHQ1bHh0NFVkMXBjN2FYSFArVkQ1NThuaTJEQlIzdXV5MG1tcytmdklvcnJ2d1NESTUyM2ZyZ2VxTXdHemVaczd0U3htc2ZNanFzYVArbnFidWhBWnY5V3BNV216Y21tZG14M09zN2NyVzFLaGJLUytia3MzYnpEbG5FbE1ucE9rZkd2NUcwVEM4RXRkVTNPVG1XZE5wYm9oaU8vNWJEeGhLVVNnN3pMN3RlYnA2QzNYZFVYOVBVNWRDUTJYOFdNSmlVMCtCQ3pvV3M3WXJSMU1OOC9RTVExRzB2ZHNqZDg0OW5rUDJiUnhXK0tFVXVDNUVMWVB2WGpxTnNhUGlETlV3STlEVm1sRk5VYjU5NzRzOHRxVExteEVvbThCaFU3ZENReVUxbHJUWTFKTm5ac2RpMW16T0VvLzZMOUtwaGcxdDZSaDNEVk5xUTNsNTdZdG5ITXpweCs5REptZlh0QWxzU2thNDQxZXIrTTJmTnpLNldUSWFPMHRkQ3cxdkZyaS9zU1hQWlRjdm9XeTdSQzMvZHdsTjA4dFJ0NmFqYjVONlI1czcwMUFNNW13dW5uRXdNOCtjU0hlTkhmWEhOTWQ0OU5tTlhQZVRGMGxLOVp3djZsNW84R1JvVEZtczNqVEVOMys4bkdqRXdEVHduUld3REVVdTc5Q1dqbkxYM09NNGROL0dkOXg2c1F4dmV1dXhrMFp4NVJjT3I2bkRrZU5xVW5HVEphLzJjY04vcmFBeEdmRzlvUnpwaEVKb2VMTmQ3QytlMnNDVkMxOGdIak14RE9XN2VNYzBGZG1DUTFzNnpzSXJqcU81SVVLaDdKMzJHWVlpVjNTWU9yR1pHeTg5aWtMUnFUUlUzSG0wOWdxd3lvN202M2NzWlV0L3dYdkRTRWJERjZFUkdqeXAyOUpSSG5wcUhWY3U3Q1FlTlRDVi8zU1hhWGpGUmZ1MEpiajYzQ2s0anZiR1FUZ3VwcW00YVphM0NmUTdJM0RiYzd1YU9iY3ZaZldtTEkzSjhQZWYyNTJFU21qd3dvKzJkSXlIbnRyZ1NSMHphMm9mVzUwODlmRVQyMWt3YXpyRmtvUHJham91bmNhQjQxSmtzclVkbm94dWpySGc1eXY1elROdjFKU2xFVHpxcG5QU3ptQnZXNm5YbzVUaTJndU93SFlkOEJtWlZtKzl6UGpndmd4a3l4VExEcDg4ZVR4ZHZRWGY5UisybzBtbkl2em90NnU1Ly9GMWpBM0JqTUFnVUJlZGsvd1NNUTAyOVJhWWRkYkJ6RDl2S3B0NzgwUk0veThsMTlVa1lpYTJxMnU2OFZKOWl6eTJaRE1YM0xDWXBsU2tjcmpqKzlHRUNxRUxPZDZLN2JpTWFZN3gweisrem9OUHJLTXRYZHNxYUJpS2ZNbkJ0djNQQ0t4K0tGYXNIZURhZTE0a0diZThKcFFpOHk0aDFFSjdiUTgxcHFtWXQ3Q1RYLzFwUFcwMVhpZzFsUCtXdlZxRFpYbGRuNjVjMk1tNjdoeXhxR1EwZGlXaGpLSGZpdFpnR1FZcW92ajZ3azRBempwbFgzb0dkbTFSLzdDZUJZMmhET1l0N0dUNTZ3TzAxRkQrS3V5WVVLL1FWVnl0TVExRkxHb3lkMkVuRHovOUJxM3BQZHZNMERzSmpIUEhyMWZ4d0JPMVhWQVEzcDNRcjlCVlhLMHhsU0llTWZuNkQ1WUNtbytmMk82bDNYYnpTbDA5OUxuL3NiVXNlblExWTVyalVuQzBteGdSSzNRVmI2WDJlaWpQclhRY2FtNk1VTjZOY3RtT3BxVXh5cEtWdmN4YjJJbGxHdWdSM1gxdTl6S2loQVp2ZUx0cGVxMTNyNzU3R1J1Njh6UW0vTmRTditmdmNyMUMvZGU3c3N5L2V4a1J5NmdVNnUveVh5VlVHSEZDZ3lkYVBHcnkyaHNaWm41M01WMTlCZSsrM2k2VVdtdUlSQXhzVnpOcndWOVp2V21vcHRKV1lYaU1TS0hCTzNadVNrVllzM0dJbVRkNFVxZDJvZFFhaldVb3J2L3BTN3l5Zm1UTUNBd0NJMVpvcUJUVXB5S3MyWlJsWnNkaXVxc3JkWTNpVlRNYTkveCtEZmYrWVExcFNjL3RNVWEwMEZDVjJtTE54aUV1NkZqTTVyNENpWmovcmtUVld5ZS8vdDhOL09mREkydEdZQkFZOFVMRG15djE2azFaTHV4WVRDWm4rNnBKZGh4TmN5ckN5K3NIbVgzNzBzcm1UMGxPWXc4aVFsZW9Wcis5c2o3RGpmZS9UQ0p1VmdaOURnK3ROYkdvd2ViZUF2LzJ3MDdRM3NWWmFUMndaeEdoMzRKdHU0eHFpdkxBRSt1WXYyalp0dERqL1p5c3JzU2d1UHpXdjdGOHpRQUp1Uk80VnhDaHQ4TjJOSzFOVWU3NTNScSs5K0JLeG8ySzQ3cjZYV05xVjJzYzEydlpkZWNqcTFpeXNwZldSb21iOXhZajV1aDdaM0FjVFd1VFYzWTZzYjJSZi96Z2VCeFhreTNZNy9qZVpNd2lZaWtlZW5JOVAvN2RHcTlHSThqamEwTk9xQXY4YTZGYWNKL0oyY3c0dVoyTFBuRXdoKzdYaUdHb2JWOXp0ZWExRFVQYytjaHJQUHowQmxKeEM2T0cyK1pDN1lqUTc0SENLK3J2ejVaSkp5TWNQM2tVSjAxdHEzVE8xL3pmaTF0NTdxV3Q5QStWU0RkRTBmcjk0MjFoOXlKQ0R3UFRVTmlPSmxlMDN4WWJtNFlpR2Jld1RDVWJ3SUFnTWZRd2NGeU5vYWcwZ01GYnVuWGxSb3lyUmVZQUlVSVBrNnE4UXJDUnRKMFFLa1JvSVZTSTBFS29FS0dGVUNGQ0M2RkNoQlpDaFFndGhBb1JXZ2dWSXJRUUtrUm9JVlNJMEVLb0VLR0ZVQ0ZDQzZGQ2hCWkNoUWd0aEFvUldnZ1ZJclFRS2tSb0lWU0kwRUtvRUtHRlVDRkNDNkZDaEJaQ2hRZ3RoQW9SV2dnVklyUVFLa1JvSVZTSTBFS29FS0dGVUNGQ0M2RkNoQlpDaFFndGhBb1JXZ2dWSXJRUUtrUm9JVlNJMEVLb0VLR0ZVQ0ZDQzZGQ2hCWkNoUWd0aEFvUldnZ1ZJclFRS2tSb0lWU0kwRUtvK0g5RmQ3Y3Zrc2hyemdBQUFBQkpSVTVFcmtKZ2dnPT0iLCAic2l6ZXMiOiAiMTgweDE4MCIsICJ0eXBlIjogImltYWdlL3BuZyJ9LCB7InNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQWdBQUFBSUFDQVlBQUFEMGVOVDZBQUFPeWtsRVFWUjRuTzNhUVhMYlJnS0ZZV29xZTIxVTVkdGtrL1BrTkRsUE5ybVladUY0eHBaRUNTUUJkUGQ3MzdkT3hTQ0k0UDNOK09uYnkvUHJCUUNvOHAvUkZ3QUFuRThBQUVBaEFRQUFoUVFBQUJRU0FBQlFTQUFBUUNFQkFBQ0ZCQUFBRkJJQUFGQklBQUJBSVFFQUFJVUVBQUFVRWdBQVVFZ0FBRUFoQVFBQWhRUUFBQlFTQUFCUVNBQUFRQ0VCQUFDRkJBQUFGQklBQUZCSUFBQkFJUUVBQUlVRUFBQVVFZ0FBVUVnQUFFQWhBUUFBaFFRQUFCUVNBQUJRU0FBQVFDRUJBQUNGQkFBQUZCSUFBRkJJQUFCQUlRRUFBSVVFQUFBVUVnQUFVRWdBQUVBaEFRQUFoUVFBQUJRU0FBQlFTQUFBUUNFQkFBQ0ZCQUFBRkJJQUFGQklBQUJBSVFFQUFJVUVBQUFVRWdBQVVFZ0FBRUFoQVFBQWhRUUFBQlFTQUFCUVNBQUFRQ0VCQUFDRkJBQUFGQklBQUZCSUFBQkFJUUVBQUlVRUFBQVVFZ0FBVUVnQUFFQWhBUUFBaFFRQUFCUVNBQUJRU0FBQVFDRUJBQUNGQkFBQUZCSUFBRkJJQUFCQUlRRUFBSVVFQUFBVUVnQUFVRWdBQUVBaEFRQUFoUVFBQUJRU0FBQlFTQUFBUUNFQkFBQ0ZCQUFBRkJJQUFGQklBQUJBSVFFQUFJVUVBQUFVRWdBQVVFZ0FBRUFoQVFBQWhRUUFBQlFTQUFCUVNBQUFRQ0VCQUFDRkJBQUFGQklBQUZCSUFBQkFJUUVBQUlVRUFBQVVFZ0FBVUVnQUFFQWhBUUFBaFFRQUFCUVNBQUJRU0FBQVFDRUJBQUNGQkFBQUZCSUFBRkJJQUFCQUlRRUFBSVVFQUFBVUVnQUFVRWdBQUVBaEFRQUFoUVFBQUJRU0FBQlFTQUFBUUNFQkFBQ0ZCQUFBRkJJQUFGQklBQUJBSVFFQUFJVUVBQUFVRWdBQVVFZ0FBRUFoQVFBQWhRUUFBQlFTQUFCUVNBQUFRQ0VCQUFDRkJBQUFGQklBQUZCSUFBQkFJUUVBQUlWK0czMEJBSXp6ejE5L2ZQblAvUDduM3lkY0NXZDcrdmJ5L0RyNklnQTR6NWJSdjBZTTVCQUFBQ1VlR2Y2M2hNRDZCQUJBdUQySC95MGhzQzUvQ1JBZzJKSGpmOGEvbitQNEJRQWcwSWhoOW12QVd2d0NBQkJtMUtuY3J3RnJFUUFBUVVhUDhPZy9uKzBFQUFBVUVnQUFJV1k1ZmM5eUhYeE9BQUFFbUcxMFo3c2UzaE1BQUZCSUFBQXNidGJUOXF6WHhYY0NBR0JoUnBaN0NRQ0FSYTB3L2l0Y1l5c0JBTEFndzhxakJBREFZb3cvZXhBQUFCeEtzTXhKQUFBc3hKaXlGd0VBc0Fqano1NEVBTUFDakQ5N0V3QUFrelArSEVFQUFFek0rSE1VQVFBQWhRUUF3S1NjL2ptU0FBQ1lrUEhuYUFJQVlESnA0Ly83bjMrUHZnUStJQUFBSnBJMi9zeExBQUJBSVFFQU1JbkUwNytmLytjbEFBQW1rRGorekUwQUFBeVdPdjVPLzNNVEFBQURwWTQvOHhNQUFJTWtqNy9ULy93RUFBQzdNdjVyRUFBQUF5U2YvbG1EQUFBNFdmTDRPLzJ2UXdBQW5NajRNd3NCQUhBUzQ4OU1CQURBQ1l3L3N4RUFBTnpOK0s5TEFBQWNMUFgwYi96WEpnQUFEbVQ4bVpVQUFEaEk2dmlUUVFBQUhDQjUvSjMrTXdnQWdKMFpmMVlnQUFEWXhQaG5FUUFBTzBvOS9Sdi9QQUlBWUNmR241VUlBSUFkcEk0L3VRUUF3SU9TeDkvcFA1Y0FBT0JEeGorYkFBQjRRT3JwMy9qbkV3QUFkekwrckV3QUFOd2hkZnpwSVFBQWJwUTgvazcvUFFRQXdBMk1QeWtFQUFER3Y1QUFBTmdvOWZSdi9Ec0pBSUFOakQ5cEJBREFGMUxIbjI0Q0FPQVR5ZVB2OU45TkFBQmNZZnhKSmdBQXloaC9MaGNCQVBDaDFOTy84ZWNIQVFEd2h2R25nUUFBK0VucStNTmJBZ0RnWDhuajcvVFBXd0lBSUp6eDV5TUNBT0NTZS9vMy9sd2pBSUI2eHA5R0FnQ29adnhwSlFDQVdxbmpEMXNJQUtCUzh2ZzcvYk9GQUFBSVl2elpTZ0FBZFZKUC84YWZXd2dBb0lyeGgrOEVBRkFqZGZ6aEhnSUFxSkE4L2s3LzNFTUFBUEdNUDd3bkFBQVdaZng1aEFBQW9xV2UvbzAvanhJQVFDempEOWNKQUNCUzZ2akRYZ1FBRUNkNS9KMysyWXNBQUZpRThXZFBBZ0NJa25yNk4vN3NUUUFBTVl3L2JDY0FnQWpHSDI0akFJRGxwWTQvSEVrQUFFdExIbituZjQ0a0FBQW1aUHc1bWdBQWxwVjYramYrbkVFQUFFc3kvdkFZQVFBc0ozWDg0VXdDQUZoSzh2ZzcvWE1tQVFBc3cvakRmZ1FBd0dER254RUVBTENFMU5PLzhXY1VBUUJNei9qRC9nUUFNTFhVOFlmUkJBQXdyZVR4ZC9wbk5BRUFjRExqend3RUFEQ2wxTk8vOFdjV0FnQ1lqdkdINHdrQVlDckdIODRoQUlCcHBJNC96RWdBQUZOSUhuK25mMllrQUFBT1pQeVpsUUFBaGtzOS9SdC9aaVlBZ0tHTVA0d2hBSUJoVXNjZlZpQUFnQ0dTeDkvcG54VUlBT0IweGgvR0V3QUFPekgrckVRQUFLZEtQZjBiZjFZakFJRFRHSCtZaHdBQVRwRTYvckNxMzBaZkFIUGE4ckoyNm1HcjVQSDMzd0dyZXZyMjh2dzYraUtZd3lNdmFTOUJyakgrTUNlL0FMRExDL3JIdjhNTGtSYWVkVmJuRjRCaVI1N012Qnk1WEhKUC81NXZFdmhMZ0tXT2ZqR252dmpaTHZVWk1QNms4TDhBeXB6NVV2YS9CWHFsamo4azhRdEFrVkV2WldQUUpmbjdGck1rRVFBbFJyK1VSLy81OENqalR4b0JBT3dtTmZTTVA0a0VRSUZaWHNxelhBZkhTUDEralQrcEJFQzQyVjdLczEwUCsvQzl3bm9FQUtjekZsbVN2MCtuZjVJSmdHQXp2NWhudmphMlMvNGVqVC9wQkFEREpJOEhhelArTkJBQW9WWVoxMVd1ay9kU3Z6dmpUd3NCd0hDcFE1SXM5VHN6L2pRUkFNQk5Vc2NmMmdpQVFDdStvRmU4NWtiSjM1UFRQMjBFQU5OSUhwY0V5ZCtQOGFlUkFHQXF5U1BEbkl3L3JRUUEweEVCODBuOVRvdy96UVFBVTBvZG5CV2xmaGZHbjNZQ2dHbWxEczlLZkFlUVN3QXdOUU0wVHZLOWQvb0hBY0FDa29lSTh4bC8rRTRBc0FRUmNLN1UrMjM4NGY4RVFLRFVsMXpxS00wbTlUNm4vbmNCOXhJQUxDVjFuR2FSZW4rTlA3d25BRmhPNmtpTjVyNUNGd0VRS3YzRVk2ejJsWHcvMC85YmdIc0pBSmFWUEZyc3cvakRkUUlnV01QTFR3UThMdlVlTmp6LzhBZ0J3UEpTQit3TXFmZk8rTVBYQkVDNGxoZGg2cEFkeVQyRGJnS2dRRXNFc0YzeStIdmVZUnNCUUl6a1VkdFQ4bjB5L3JDZEFDalI4bUpNSGpjKzEvS013MTRFUUpHV0Y2UUl1QzcxM3JRODI3Q25wMjh2ejYrakw0THpwUTdCejR6Q3IxSy9jOTh6M01jdkFLVWFYcHFwZzNjUDl3SjRTd0FVRXdFZGt1OUJ3ek1NUnhFQTVScGVvTWtEMkt6aDJZVWpDUUFxWHFTdEVaRDZ1UnVlV1RpYUFPQnl1WFM4VUZQSDhKclV6OXZ3ck1JWkJBQlZVa2Z4cmRUUGFmeGhQd0tBLzJsNXVhYU80dy9wbncvWWh3RGdGeUpnYmFtZjYzTHBlVGJoTEFLQWQxcGV0TWxqbWFibG1ZUXpDUUErMVBMQ1RZcUFwTS95czVabkVjNG1BTGlxNWNXYk1Kd0puK0VqTGM4Z2pDQUErRlRMQzNqbEFWMzUyb0Z4QkFCZmFvbUFGU1dQditjT2ppVUEyS1RoWmJ6YW1LNTJ2YmRvZU41Z05BSEFaZzB2NWVSUlhVWERjd1l6RUFEY3BPSGx2RUlFckhDTjkyaDR2bUFXQW9DYk5ieWtaeDdZbWEvdEVRM1BGY3hFQUhDWGhwZjFqRU03NHpVQmF4SUEzRTBFbkd1bWE5bGJ3N01Fc3hFQVBLVGh4WjA4dkROb2VJWmdSZ0tBaHpXOHdFZEh3T2cvL3lnTnp3N01TZ0N3aTRZWCthZ1JOdjdBRVFRQXUybDRvWjg5eHNZZk9Jb0FnQnVkTmNxcDR3L01RUUN3cTVhVDNkSGpuRHorTGM4SXpFNEFzTHVXRjN6eVNCK2w1ZG1BRlFnQUR0SHlvajhpQWxMRG91V1pnRlVJQUE3VDhzTGZjN0NOUDNBV0FjQ2hXbDc4ZXd4MzZ2Z0RjeElBSEs0bEFoNlJQUDYrZjVpVEFPQVVEU053NzRnYmYyQUVBY0JwR3NZZ2VjeHYxZkI5dzhvRUFLZHFHSVZiSWlBMUdCcStaMWlkQU9CMERlT3daZGlOUHpDU0FHQ0locEg0Yk9CVHh4OVlod0JnbU5ZSVNCNy9odThVVWdnQWhtb1lqSjhIMy9nRHN4QUFETmN3SE1uRGY3bDBmSWVRNXVuYnkvUHI2SXVBeXlWL0pGTVpmMWlUWHdDWWhpRlpqKzhNMWlVQUFLQ1FBR0FxVHBUcjhGM0IyZ1FBMHpFczgvTWR3Zm9FQUZNeU1QUHkzVUFHQWNDMERNMThmQ2VRUXdBd05ZTURjQXdCd1BSRXdCeDhENUJGQUxBRTR6T1crdzk1QkFETE1FSmp1TytRU1FDd0ZHTjBMdmNiY2drQWxtT1V6dUUrUXpZQndKS01FOEJqQkFETEVnSEhjVzhobndCZ2FZWnFmKzRwZEJBQUxNOWc3Y2U5aEI0Q2dBaUc2M0h1SVhRUkFNUXdZUGR6NzZDUEFBQ0FRZ0tBS0U2eXQzUFBvSk1BSUk1QjI4NjlnbDRDZ0VpRzdXdnVFWFFUQU1ReWNOZTVONEFBSUpxaGU4ODlBUzRYQVVBQmd3ZnduZ0NnZ2dqNHpuMEFmaEFBMUdnZnYvYlBEL3hLQUZDbGRRUmJQemR3blFDZ1R0c1l0bjFlWUJzQlFDV2pDTFFUQU5ScWlJQ0d6d2pjUndCUUxYa2drejhiOERnQlFMM0VvVXo4VE1DK0JBQmNzZ1l6NmJNQXh4RUE4SytFNFV6NERNQTVCQUQ4eElBQ0xRUUFoQkF2d0MwRUFMeXg0cEN1ZU0zQVdBSUFQckRTb0s1MHJjQThCQUJjc2NLd3JuQ053SndFQUh4aTVvR2QrZHFBK1FrQStJS2hCUklKQU5oZ3RnaVk3WHFBOVFnQTJHaVcwWjNsT29DMUNRQUFLQ1FBNEFhalQ5K2ovM3dnaHdDQUc0MGFZZU1QN09ucDI4dno2K2lMZ0ZYOTg5Y2ZoLzhaaGg4NGdsOEE0QUZIajdQeEI0N2lGd0RZeVo2L0JoaCs0R2dDQUhiMlNBZ1lmdUFzQWdBT3RDVUdqRDR3Z2dBQWdFTCtFaUFBRkJJQUFGQklBQUJBSVFFQUFJVUVBQUFVRWdBQVVFZ0FBRUFoQVFBQWhRUUFBQlFTQUFCUVNBQUFRQ0VCQUFDRkJBQUFGQklBQUZCSUFBQkFJUUVBQUlVRUFBQVVFZ0FBVUVnQUFFQWhBUUFBaFFRQUFCUVNBQUJRU0FBQVFDRUJBQUNGQkFBQUZCSUFBRkJJQUFCQUlRRUFBSVVFQUFBVUVnQUFVRWdBQUVBaEFRQUFoUVFBQUJRU0FBQlFTQUFBUUNFQkFBQ0ZCQUFBRkJJQUFGQklBQUJBSVFFQUFJVUVBQUFVRWdBQVVFZ0FBRUFoQVFBQWhRUUFBQlFTQUFCUVNBQUFRQ0VCQUFDRkJBQUFGQklBQUZCSUFBQkFJUUVBQUlVRUFBQVVFZ0FBVUVnQUFFQWhBUUFBaFFRQUFCUVNBQUJRU0FBQVFDRUJBQUNGQkFBQUZCSUFBRkJJQUFCQUlRRUFBSVVFQUFBVUVnQUFVRWdBQUVBaEFRQUFoUVFBQUJRU0FBQlFTQUFBUUNFQkFBQ0ZCQUFBRkJJQUFGQklBQUJBSVFFQUFJVUVBQUFVRWdBQVVFZ0FBRUFoQVFBQWhRUUFBQlFTQUFCUVNBQUFRQ0VCQUFDRkJBQUFGQklBQUZCSUFBQkFJUUVBQUlVRUFBQVVFZ0FBVUVnQUFFQWhBUUFBaFFRQUFCUVNBQUJRU0FBQVFDRUJBQUNGQkFBQUZCSUFBRkJJQUFCQUlRRUFBSVVFQUFBVUVnQUFVRWdBQUVBaEFRQUFoUVFBQUJRU0FBQlFTQUFBUUNFQkFBQ0ZCQUFBRkJJQUFGQklBQUJBSVFFQUFJVUVBQUFVRWdBQVVFZ0FBRUFoQVFBQWhRUUFBQlFTQUFCUVNBQUFRQ0VCQUFDRkJBQUFGQklBQUZCSUFBQkFJUUVBQUlVRUFBQVVFZ0FBVUVnQUFFQWhBUUFBaFFRQUFCUVNBQUJRU0FBQVFLSC9BdlFYTlo1TXVNenJBQUFBQUVsRlRrU3VRbUNDIiwgInNpemVzIjogIjUxMng1MTIiLCAidHlwZSI6ICJpbWFnZS9wbmcifV19">
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #17140F;
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+</style>
+
+</head>
+<body>
+<style>
+  :root {
+    --ink: #17140F;
+    --canvas: #221D16;
+    --canvas-2: #2B251B;
+    --rope: #3D3527;
+    --rope-light: #4A4130;
+    --chalk: #F3EEE4;
+    --chalk-dim: #A69C89;
+    --chalk-faint: #6B6250;
+    --brass: #D9A752;
+    --brass-bg: rgba(217,167,82,0.14);
+    --win: #6FA36E;
+    --win-bg: rgba(111,163,110,0.16);
+    --loss: #C15C50;
+    --loss-bg: rgba(193,92,80,0.16);
+    --steel: #7C93AD;
+    --steel-bg: rgba(124,147,173,0.16);
+    --ember: #E2803F;
+    --ember-bg: rgba(226,128,63,0.16);
+    --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --shadow-card: 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-inset: inset 0 2px 8px rgba(0,0,0,0.45), inset 0 0 0 1px var(--rope);
+  }
+
+  * { box-sizing: border-box; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  .nv-root {
+    font-family: var(--font-display);
+    background: var(--ink);
+    color: var(--chalk);
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .nv-root button { font-family: inherit; }
+  .nv-root input { font-family: inherit; }
+
+  /* ---------- Header ---------- */
+  .nv-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid var(--rope);
+  }
+  .nv-brand-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin: 0 0 2px;
+  }
+  .nv-brand-name {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--chalk);
+  }
+  .nv-sync {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nv-sync-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--win);
+    transition: background 0.3s ease;
+  }
+  .nv-sync-dot.pending {
+    background: var(--brass);
+    animation: nv-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes nv-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+  .nv-sync-label {
+    font-size: 10px;
+    color: var(--chalk-faint);
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- Main / Screens ---------- */
+  .nv-main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px 18px 100px;
+    animation: nv-rise 0.35s ease both;
+  }
+  @keyframes nv-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .nv-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin: 0 0 4px;
+  }
+  .nv-screen-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+    color: var(--chalk);
+  }
+  .nv-title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .nv-title-row .nv-screen-title { margin-bottom: 0; }
+
+  .nv-text-btn {
+    background: none;
+    border: none;
+    color: var(--chalk-dim);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 4px;
+  }
+  .nv-text-btn:active { opacity: 0.6; }
+  .nv-text-btn.active-edit { color: var(--loss); }
+
+  /* ---------- Chips ---------- */
+  .nv-chip-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin-bottom: 20px;
+    scrollbar-width: none;
+  }
+  .nv-chip-row::-webkit-scrollbar { display: none; }
+  .nv-chip {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--canvas);
+    border: 1px solid var(--rope);
+    color: var(--chalk-dim);
+    padding: 9px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .nv-chip.active {
+    background: var(--brass-bg);
+    border-color: var(--brass);
+    color: var(--brass);
+  }
+  .nv-chip-del {
+    background: none;
+    border: none;
+    color: var(--loss);
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 0 0 2px;
+  }
+  .nv-chip-add {
+    flex: 0 0 auto;
+    background: none;
+    border: 1px dashed var(--rope-light);
+    color: var(--chalk-dim);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ---------- Empty state ---------- */
+  .nv-empty {
+    text-align: center;
+    padding: 56px 20px;
+    color: var(--chalk-dim);
+  }
+  .nv-empty-icon {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 16px;
+    color: var(--rope-light);
+  }
+  .nv-empty h3 {
+    color: var(--chalk);
+    font-size: 16px;
+    margin: 0 0 6px;
+  }
+  .nv-empty p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0 0 20px;
+    color: var(--chalk-faint);
+  }
+
+  /* ---------- Buttons ---------- */
+  .nv-btn {
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 13px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .nv-btn.full { width: 100%; }
+  .nv-btn-primary { background: var(--brass); color: #1A1508; }
+  .nv-btn-primary:active { filter: brightness(0.92); }
+  .nv-btn-outline { background: transparent; border: 1px solid var(--rope-light); color: var(--chalk); }
+  .nv-btn-outline:active { background: var(--canvas); }
+  .nv-btn-ghost { background: none; color: var(--chalk-dim); }
+  .nv-btn-danger { background: var(--loss-bg); color: var(--loss); }
+  .nv-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* ---------- Counter window (signature element) ---------- */
+  .nv-stats-row { display: flex; gap: 10px; margin-bottom: 20px; }
+  .nv-counter {
+    flex: 1;
+    background: var(--canvas);
+    border-radius: var(--radius-lg);
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+  }
+  .nv-counter-window {
+    background: var(--ink);
+    box-shadow: var(--shadow-inset);
+    border-radius: var(--radius-sm);
+    padding: 10px 6px 8px;
+    margin-bottom: 8px;
+  }
+  .nv-counter-value {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--brass);
+    line-height: 1;
+    display: block;
+  }
+  .nv-counter-value.mini { font-size: 22px; }
+  .nv-counter-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--chalk-faint);
+  }
+
+  /* ---------- Calendar ---------- */
+  .nv-cal-card {
+    background: var(--canvas);
+    border-radius: var(--radius-lg);
+    padding: 16px 14px;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 14px;
+  }
+  .nv-cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .nv-cal-nav {
+    background: var(--canvas-2);
+    border: 1px solid var(--rope);
+    color: var(--chalk);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nv-cal-nav:disabled { opacity: 0.25; cursor: default; }
+  .nv-cal-title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .nv-cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+  .nv-cal-wd {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--chalk-faint);
+    padding-bottom: 6px;
+    letter-spacing: 0.04em;
+  }
+  .nv-cal-day {
+    aspect-ratio: 1;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--chalk);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+  }
+  .nv-cal-day:active { filter: brightness(1.2); }
+  .nv-cal-day.empty { visibility: hidden; pointer-events: none; }
+  .nv-cal-day.today { box-shadow: inset 0 0 0 1.5px var(--brass); }
+  .nv-cal-day.future { color: var(--rope-light); cursor: default; pointer-events: none; }
+  .nv-cal-day.win { background: var(--win-bg); color: var(--win); }
+  .nv-cal-day.loss { background: var(--loss-bg); color: var(--loss); }
+  .nv-cal-day.attended { background: var(--brass-bg); color: var(--brass); }
+
+  .nv-month-summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 2px 4px;
+    font-size: 12.5px;
+    color: var(--chalk-dim);
+    margin-bottom: 20px;
+  }
+  .nv-legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  /* ---------- Segmented control ---------- */
+  .nv-segmented {
+    display: flex;
+    background: var(--canvas);
+    border-radius: var(--radius-md);
+    padding: 4px;
+    margin-bottom: 18px;
+    border: 1px solid var(--rope);
+  }
+  .nv-segment {
+    flex: 1;
+    text-align: center;
+    padding: 9px 0;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--chalk-dim);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .nv-segment.active {
+    background: var(--brass);
+    color: #1A1508;
+  }
+
+  /* ---------- Bottom nav ---------- */
+  .nv-bottom-nav {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    background: var(--canvas);
+    border-top: 1px solid var(--rope);
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+  }
+  .nv-nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: var(--chalk-faint);
+    padding: 6px 0;
+    cursor: pointer;
+  }
+  .nv-nav-btn svg { width: 22px; height: 22px; }
+  .nv-nav-btn span { font-size: 10.5px; font-weight: 700; letter-spacing: 0.02em; }
+  .nv-nav-btn.active { color: var(--brass); }
+
+  /* ---------- Modal ---------- */
+  .nv-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,8,5,0.6);
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 50;
+  }
+  .nv-modal-overlay.open { opacity: 1; }
+  .nv-modal-sheet {
+    background: var(--canvas-2);
+    width: 100%;
+    max-width: 480px;
+    max-height: 82vh;
+    overflow-y: auto;
+    border-radius: 18px 18px 0 0;
+    padding: 20px 20px calc(24px + env(safe-area-inset-bottom, 0px));
+    transform: translateY(16px);
+    transition: transform 0.25s ease;
+    border-top: 1px solid var(--rope-light);
+  }
+  .nv-modal-overlay.open .nv-modal-sheet { transform: translateY(0); }
+  .nv-sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .nv-sheet-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--chalk);
+  }
+  .nv-icon-btn {
+    background: var(--canvas);
+    border: 1px solid var(--rope);
+    color: var(--chalk-dim);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nv-icon-btn.small { width: 22px; height: 22px; font-size: 12px; }
+
+  .nv-choice-row { display: flex; gap: 10px; margin-bottom: 14px; }
+  .nv-choice-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 8px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--rope);
+    background: var(--canvas);
+    color: var(--chalk-dim);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .nv-choice-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background: var(--canvas-2);
+  }
+  .nv-choice-btn.win.selected { border-color: var(--win); background: var(--win-bg); color: var(--win); }
+  .nv-choice-btn.win.selected .nv-choice-icon { background: var(--win); color: var(--ink); }
+  .nv-choice-btn.loss.selected { border-color: var(--loss); background: var(--loss-bg); color: var(--loss); }
+  .nv-choice-btn.loss.selected .nv-choice-icon { background: var(--loss); color: var(--ink); }
+
+  .nv-link-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: none;
+    border: none;
+    color: var(--chalk-faint);
+    font-size: 12.5px;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 4px 0 2px;
+  }
+
+  .nv-input {
+    width: 100%;
+    background: var(--canvas);
+    border: 1px solid var(--rope-light);
+    color: var(--chalk);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .nv-input:focus { outline: none; border-color: var(--brass); }
+  .nv-input::placeholder { color: var(--chalk-faint); }
+
+  .nv-toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--canvas);
+    border-radius: var(--radius-md);
+    padding: 13px 14px;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+  .nv-toggle-row span:first-child { font-size: 14px; font-weight: 600; }
+  .nv-toggle-row input[type="checkbox"] { display: none; }
+  .nv-toggle-visual {
+    width: 42px;
+    height: 24px;
+    background: var(--rope);
+    border-radius: 999px;
+    position: relative;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+  }
+  .nv-toggle-visual::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 18px; height: 18px;
+    background: var(--chalk-dim);
+    border-radius: 50%;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .nv-toggle-row input:checked + .nv-toggle-visual { background: var(--brass-bg); box-shadow: inset 0 0 0 1px var(--brass); }
+  .nv-toggle-row input:checked + .nv-toggle-visual::after { transform: translateX(18px); background: var(--brass); }
+
+  .nv-exercise-list { margin-bottom: 12px; }
+  .nv-exercise-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 4px;
+    border-bottom: 1px solid var(--rope);
+    font-size: 13.5px;
+  }
+  .nv-exercise-row:last-child { border-bottom: none; }
+  .nv-empty-hint {
+    color: var(--chalk-faint);
+    font-size: 13px;
+    font-style: italic;
+    padding: 10px 2px 16px;
+    margin: 0;
+  }
+
+  .nv-ex-form-row { display: flex; gap: 8px; }
+  .nv-ex-form-row .nv-input { flex: 1; }
+
+  .nv-confirm-box p { font-size: 14px; line-height: 1.5; color: var(--chalk); margin: 0 0 18px; }
+  .nv-confirm-actions { display: flex; gap: 10px; }
+  .nv-confirm-actions .nv-btn { flex: 1; }
+
+  /* ---------- Boxing ---------- */
+  .nv-boxing-settings {
+    background: var(--canvas);
+    border-radius: var(--radius-lg);
+    padding: 6px 16px;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow-card);
+  }
+  .nv-setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--rope);
+  }
+  .nv-setting-row:last-child { border-bottom: none; }
+  .nv-setting-label { font-size: 13.5px; font-weight: 600; color: var(--chalk-dim); }
+  .nv-stepper { display: flex; align-items: center; gap: 12px; }
+  .nv-stepper-btn {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--rope-light);
+    background: var(--canvas-2);
+    color: var(--chalk);
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nv-stepper-btn:disabled { opacity: 0.3; }
+  .nv-stepper-value {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--chalk);
+    min-width: 52px;
+    text-align: center;
+  }
+
+  .nv-timer-wrap {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 6px auto 22px;
+  }
+  .nv-timer-ring { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .nv-ring-bg { fill: none; stroke: var(--rope); stroke-width: 10; }
+  .nv-ring-fg {
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.24s linear, stroke 0.3s ease;
+  }
+  .nv-ring-fg.round { stroke: var(--ember); }
+  .nv-ring-fg.rest, .nv-ring-fg.ready { stroke: var(--steel); }
+  .nv-ring-fg.done { stroke: var(--win); }
+  .nv-timer-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .nv-timer-phase {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .nv-timer-phase.round { color: var(--ember); }
+  .nv-timer-phase.rest, .nv-timer-phase.ready { color: var(--steel); }
+  .nv-timer-phase.done { color: var(--win); }
+  .nv-timer-phase.idle { color: var(--chalk-faint); }
+  .nv-timer-time {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--chalk);
+    line-height: 1;
+  }
+  .nv-timer-round {
+    font-size: 11.5px;
+    color: var(--chalk-faint);
+    margin-top: 6px;
+    font-weight: 600;
+  }
+
+  .nv-timer-controls { display: flex; gap: 12px; align-items: center; justify-content: center; }
+  .nv-btn-timer-primary {
+    background: var(--brass);
+    color: #1A1508;
+    border: none;
+    border-radius: 999px;
+    padding: 15px 38px;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+  }
+  .nv-btn-timer-primary:active { filter: brightness(0.92); }
+  .nv-btn-timer-secondary {
+    background: var(--canvas);
+    border: 1px solid var(--rope-light);
+    color: var(--chalk-dim);
+    border-radius: 999px;
+    padding: 15px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .nv-mute-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--canvas);
+    border: 1px solid var(--rope);
+    color: var(--chalk-dim);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nv-mute-btn svg { width: 15px; height: 15px; }
+  .nv-boxing-head { position: relative; margin-bottom: 4px; height: 32px; }
+
+  /* ---------- Toast ---------- */
+  .nv-toast {
+    position: fixed;
+    bottom: 92px;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: var(--canvas-2);
+    border: 1px solid var(--rope-light);
+    color: var(--chalk);
+    padding: 11px 18px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 600;
+    box-shadow: var(--shadow-card);
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    z-index: 60;
+    max-width: 90%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nv-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+
+<div class="nv-root" id="nvApp">
+  <header class="nv-header">
+    <div>
+      <p class="nv-brand-eyebrow">Training Log</p>
+      <h1 class="nv-brand-name">Navabi Life</h1>
+    </div>
+    <div class="nv-sync" title="Sync status">
+      <span class="nv-sync-dot" id="nvSyncDot"></span>
+    </div>
+  </header>
+
+  <main class="nv-main" id="nvMain"></main>
+
+  <nav class="nv-bottom-nav">
+    <button class="nv-nav-btn" data-action="setTab" data-tab="habits" id="nvNavHabits">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12l3 3 5-6"/><rect x="3" y="4" width="18" height="17" rx="3"/></svg>
+      <span>Habits</span>
+    </button>
+    <button class="nv-nav-btn" data-action="setTab" data-tab="gym" id="nvNavGym">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="9" width="3" height="6" rx="1"/><rect x="19.5" y="9" width="3" height="6" rx="1"/><rect x="6" y="6.5" width="3.2" height="11" rx="1"/><rect x="14.8" y="6.5" width="3.2" height="11" rx="1"/><line x1="9.2" y1="12" x2="14.8" y2="12"/></svg>
+      <span>Gym</span>
+    </button>
+  </nav>
+
+  <div class="nv-modal-overlay" id="nvOverlay">
+    <div class="nv-modal-sheet" id="nvSheet"></div>
+  </div>
+
+  <div class="nv-toast" id="nvToast"></div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* =========================================================
+   STORAGE KEYS
+   ========================================================= */
+var KEYS = {
+  habits: 'navabi-habits',
+  habitLogs: 'navabi-habit-logs',
+  gymLog: 'navabi-gym-log',
+  boxing: 'navabi-boxing-settings'
+};
+
+/* =========================================================
+   DATE UTILS
+   ========================================================= */
+function pad2(n){ return String(n).padStart(2,'0'); }
+function dateKey(y,m,d){ return y+'-'+pad2(m+1)+'-'+pad2(d); }
+function dateKeyFromDate(dt){ return dateKey(dt.getFullYear(), dt.getMonth(), dt.getDate()); }
+function parseDateKey(k){
+  var parts = k.split('-');
+  return new Date(parseInt(parts[0],10), parseInt(parts[1],10)-1, parseInt(parts[2],10));
+}
+function startOfToday(){ var d = new Date(); d.setHours(0,0,0,0); return d; }
+function todayKey(){ return dateKeyFromDate(startOfToday()); }
+function daysBetween(d1,d2){ return Math.round((d2.getTime()-d1.getTime())/86400000); }
+function getMonthMatrix(year, month){
+  var first = new Date(year, month, 1);
+  var startWeekday = first.getDay();
+  var daysInMonth = new Date(year, month+1, 0).getDate();
+  var cells = [];
+  for (var i=0;i<startWeekday;i++) cells.push(null);
+  for (var d=1; d<=daysInMonth; d++) cells.push(d);
+  return cells;
+}
+function monthLabel(year, month){
+  return new Date(year, month, 1).toLocaleString('en-US', { month: 'long', year: 'numeric' });
+}
+function fullDateLabel(key){
+  var d = parseDateKey(key);
+  return d.toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+}
+function escapeHtml(str){
+  var div = document.createElement('div');
+  div.textContent = str == null ? '' : String(str);
+  return div.innerHTML;
+}
+function fmtClock(totalSeconds){
+  var s = Math.max(0, Math.ceil(totalSeconds));
+  var m = Math.floor(s/60);
+  var r = s%60;
+  return pad2(m)+':'+pad2(r);
+}
+
+/* =========================================================
+   STATE
+   ========================================================= */
+var state = {
+  loaded: false,
+  activeTab: 'habits',
+  gymSubTab: 'calendar',
+  habits: [],
+  activeHabitId: null,
+  habitEditMode: false,
+  habitLogs: {},
+  habitCalYear: startOfToday().getFullYear(),
+  habitCalMonth: startOfToday().getMonth(),
+  gymLog: {},
+  gymCalYear: startOfToday().getFullYear(),
+  gymCalMonth: startOfToday().getMonth(),
+  boxing: { roundSec: 120, restSec: 90, rounds: 3, soundOn: true },
+  currentModal: null
+};
+
+var bt = {
+  running: false,
+  phase: 'idle',
+  currentRound: 1,
+  phaseStartTs: null,
+  remainingAtPause: null,
+  interval: null,
+  lastTickSecond: null
+};
+
+/* =========================================================
+   STORAGE LAYER (with retry)
+   ========================================================= */
+var dirtyKeys = {};
+function hasStorage(){ return (typeof window !== 'undefined' && !!window.storage); }
+var LOCAL_PREFIX = 'nv:';
+var hasLocal = (function(){
+  try {
+    var t = '__nv_test__';
+    window.localStorage.setItem(t, '1');
+    window.localStorage.removeItem(t);
+    return true;
+  } catch(e){ return false; }
+})();
+function loadFromLocal(key, fallback){
+  if (!hasLocal) return fallback;
+  try {
+    var raw = window.localStorage.getItem(LOCAL_PREFIX + key);
+    if (raw == null) return fallback;
+    return JSON.parse(raw);
+  } catch(e){ return fallback; }
+}
+function saveToLocal(key, value){
+  if (!hasLocal) return false;
+  try { window.localStorage.setItem(LOCAL_PREFIX + key, JSON.stringify(value)); return true; }
+  catch(e){ return false; }
+}
+
+function stateSliceForKey(key){
+  if (key === KEYS.habits) return state.habits;
+  if (key === KEYS.habitLogs) return state.habitLogs;
+  if (key === KEYS.gymLog) return state.gymLog;
+  if (key === KEYS.boxing) return state.boxing;
+  return null;
+}
+
+function setSyncPending(pending){
+  var dot = document.getElementById('nvSyncDot');
+  if (!dot) return;
+  if (pending) dot.classList.add('pending');
+  else dot.classList.remove('pending');
+}
+
+/* Prefer Claude's remote artifact storage when present (viewing inside Claude);
+   otherwise fall back to the browser's own localStorage (standalone / installed mode). */
+function loadKey(key, fallback){
+  if (hasStorage()){
+    return window.storage.get(key, false).then(function(res){
+      if (res && res.value !== undefined && res.value !== null){
+        try { return JSON.parse(res.value); } catch(e){ return loadFromLocal(key, fallback); }
+      }
+      return loadFromLocal(key, fallback);
+    }).catch(function(){ return loadFromLocal(key, fallback); });
+  }
+  return Promise.resolve(loadFromLocal(key, fallback));
+}
+
+function saveKey(key, value){
+  var localOk = saveToLocal(key, value);
+  if (hasStorage()){
+    window.storage.set(key, JSON.stringify(value), false).then(function(res){
+      if (!res) throw new Error('save failed');
+      delete dirtyKeys[key];
+      setSyncPending(Object.keys(dirtyKeys).length > 0);
+    }).catch(function(){
+      dirtyKeys[key] = true;
+      setSyncPending(true);
+    });
+  } else {
+    setSyncPending(!localOk);
+  }
+}
+
+function persist(keyName){
+  saveKey(keyName, stateSliceForKey(keyName));
+}
+
+setInterval(function(){
+  var keys = Object.keys(dirtyKeys);
+  if (!hasStorage() || keys.length === 0) return;
+  keys.forEach(function(k){ saveKey(k, stateSliceForKey(k)); });
+}, 20000);
+
+function loadAll(){
+  return Promise.all([
+    loadKey(KEYS.habits, []),
+    loadKey(KEYS.habitLogs, {}),
+    loadKey(KEYS.gymLog, {}),
+    loadKey(KEYS.boxing, { roundSec: 120, restSec: 90, rounds: 3, soundOn: true })
+  ]).then(function(results){
+    state.habits = results[0] || [];
+    state.habitLogs = results[1] || {};
+    state.gymLog = results[2] || {};
+    var b = results[3] || {};
+    state.boxing.roundSec = b.roundSec || 120;
+    state.boxing.restSec = (b.restSec === 0) ? 0 : (b.restSec || 90);
+    state.boxing.rounds = b.rounds || 3;
+    state.boxing.soundOn = b.soundOn !== false;
+    if (state.habits.length > 0) state.activeHabitId = state.habits[0].id;
+    state.loaded = true;
+  });
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+var toastTimer = null;
+function showToast(msg){
+  var t = document.getElementById('nvToast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2600);
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+function openModalFor(descriptor){
+  state.currentModal = descriptor;
+  var overlay = document.getElementById('nvOverlay');
+  var sheet = document.getElementById('nvSheet');
+  sheet.innerHTML = renderModalContent();
+  overlay.style.display = 'flex';
+  overlay.classList.remove('open');
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){ overlay.classList.add('open'); });
+  });
+}
+function closeModal(){
+  state.currentModal = null;
+  var overlay = document.getElementById('nvOverlay');
+  overlay.classList.remove('open');
+  setTimeout(function(){ overlay.style.display = 'none'; }, 200);
+}
+function renderModalContent(){
+  var m = state.currentModal;
+  if (!m) return '';
+  if (m.type === 'habitDay') return renderHabitDayModal(m.habitId, m.date);
+  if (m.type === 'gymDay') return renderGymDayModal(m.date);
+  if (m.type === 'addHabit') return renderAddHabitModal();
+  if (m.type === 'confirmDeleteHabit') return renderConfirmDeleteHabit(m.habitId);
+  return '';
+}
+function refreshAll(){
+  renderScreen();
+  if (state.currentModal){
+    var sheet = document.getElementById('nvSheet');
+    if (sheet) sheet.innerHTML = renderModalContent();
+  }
+}
+
+/* =========================================================
+   HABIT LOGIC
+   ========================================================= */
+function getHabit(id){
+  for (var i=0;i<state.habits.length;i++) if (state.habits[i].id === id) return state.habits[i];
+  return null;
+}
+function habitLog(id){
+  if (!state.habitLogs[id]) state.habitLogs[id] = {};
+  return state.habitLogs[id];
+}
+function calcStreaks(habit, log){
+  var redDates = Object.keys(log).filter(function(d){ return log[d] === 'loss'; }).sort();
+  var resetPoints = [parseDateKey(habit.createdAt)];
+  redDates.forEach(function(d){ resetPoints.push(parseDateKey(d)); });
+  var today = startOfToday();
+  var best = 0;
+  for (var i=0;i<resetPoints.length-1;i++){
+    best = Math.max(best, daysBetween(resetPoints[i], resetPoints[i+1]));
+  }
+  var current = Math.max(0, daysBetween(resetPoints[resetPoints.length-1], today));
+  best = Math.max(best, current);
+  return { current: current, best: best };
+}
+function monthHabitStats(log, year, month){
+  var prefix = year+'-'+pad2(month+1);
+  var win = 0, loss = 0;
+  Object.keys(log).forEach(function(k){
+    if (k.indexOf(prefix) === 0){
+      if (log[k] === 'win') win++;
+      else if (log[k] === 'loss') loss++;
+    }
+  });
+  return { win: win, loss: loss };
+}
+
+/* =========================================================
+   GYM LOGIC
+   ========================================================= */
+function gymDay(key){
+  if (!state.gymLog[key]) state.gymLog[key] = { attended: false, exercises: [] };
+  return state.gymLog[key];
+}
+function monthGymCount(year, month){
+  var prefix = year+'-'+pad2(month+1);
+  var count = 0;
+  Object.keys(state.gymLog).forEach(function(k){
+    if (k.indexOf(prefix) === 0 && state.gymLog[k].attended) count++;
+  });
+  return count;
+}
+function formatExercise(ex){
+  var parts = [];
+  if (ex.sets && ex.reps) parts.push(ex.sets+'\u00D7'+ex.reps);
+  else if (ex.sets) parts.push(ex.sets+' sets');
+  else if (ex.reps) parts.push(ex.reps+' reps');
+  if (ex.weight) parts.push(ex.weight+'kg');
+  return parts.length ? (ex.name+' \u2014 '+parts.join(' \u00B7 ')) : ex.name;
+}
+function getKnownExerciseNames(){
+  var names = {};
+  Object.keys(state.gymLog).forEach(function(k){
+    (state.gymLog[k].exercises||[]).forEach(function(ex){ names[ex.name] = true; });
+  });
+  return Object.keys(names).sort();
+}
+
+/* =========================================================
+   GENERIC CALENDAR RENDERER
+   ========================================================= */
+function renderCalendar(opts){
+  var cells = getMonthMatrix(opts.year, opts.month);
+  var tKey = todayKey();
+  var isCurrentMonth = (opts.year === startOfToday().getFullYear() && opts.month === startOfToday().getMonth());
+  var html = '';
+  html += '<div class="nv-cal-header">';
+  html += '<button class="nv-cal-nav" data-action="calNav" data-context="'+opts.context+'" data-dir="-1">\u2039</button>';
+  html += '<span class="nv-cal-title">'+monthLabel(opts.year, opts.month)+'</span>';
+  html += '<button class="nv-cal-nav" data-action="calNav" data-context="'+opts.context+'" data-dir="1" '+(isCurrentMonth?'disabled':'')+'>\u203A</button>';
+  html += '</div>';
+  html += '<div class="nv-cal-grid">';
+  ['S','M','T','W','T','F','S'].forEach(function(d){ html += '<div class="nv-cal-wd">'+d+'</div>'; });
+  cells.forEach(function(day){
+    if (day === null){ html += '<div class="nv-cal-day empty"></div>'; return; }
+    var key = dateKey(opts.year, opts.month, day);
+    var cls = opts.markerFn(key);
+    var isToday = key === tKey;
+    var isFuture = key > tKey;
+    var classes = 'nv-cal-day' + (cls ? ' '+cls : '') + (isToday?' today':'') + (isFuture?' future':'');
+    if (isFuture){
+      html += '<div class="'+classes+'">'+day+'</div>';
+    } else {
+      html += '<button class="'+classes+'" data-action="dayClick" data-context="'+opts.context+'" data-date="'+key+'">'+day+'</button>';
+    }
+  });
+  html += '</div>';
+  return html;
+}
+
+/* =========================================================
+   SCREEN: HABITS
+   ========================================================= */
+function renderHabitsScreen(){
+  var html = '';
+  html += '<div class="nv-title-row">';
+  html += '<div><p class="nv-eyebrow">Daily Record</p><h2 class="nv-screen-title">Bad Habits</h2></div>';
+  if (state.habits.length){
+    html += '<button class="nv-text-btn'+(state.habitEditMode?' active-edit':'')+'" data-action="toggleHabitEdit">'+(state.habitEditMode?'Done':'Edit')+'</button>';
+  }
+  html += '</div>';
+
+  if (state.habits.length === 0){
+    html += '<div class="nv-empty">';
+    html += '<svg class="nv-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>';
+    html += '<h3>No habits yet</h3>';
+    html += '<p>Add a habit you want to quit or control. Each one gets its own calendar and streak.</p>';
+    html += '<button class="nv-btn nv-btn-primary" data-action="openAddHabit">+ Add a habit</button>';
+    html += '</div>';
+    document.getElementById('nvMain').innerHTML = html;
+    return;
+  }
+
+  html += '<div class="nv-chip-row">';
+  state.habits.forEach(function(h){
+    var active = h.id === state.activeHabitId;
+    html += '<div class="nv-chip'+(active?' active':'')+'" data-action="selectHabit" data-id="'+h.id+'">';
+    html += '<span>'+escapeHtml(h.name)+'</span>';
+    if (state.habitEditMode) html += '<button class="nv-chip-del" data-action="askDeleteHabit" data-id="'+h.id+'">\u00D7</button>';
+    html += '</div>';
+  });
+  html += '<button class="nv-chip-add" data-action="openAddHabit">+</button>';
+  html += '</div>';
+
+  var habit = getHabit(state.activeHabitId) || state.habits[0];
+  state.activeHabitId = habit.id;
+  var log = habitLog(habit.id);
+  var streaks = calcStreaks(habit, log);
+  var mstats = monthHabitStats(log, state.habitCalYear, state.habitCalMonth);
+
+  html += '<div class="nv-stats-row">';
+  html += '<div class="nv-counter"><div class="nv-counter-window"><span class="nv-counter-value">'+streaks.current+'</span></div><span class="nv-counter-label">Current Streak</span></div>';
+  html += '<div class="nv-counter"><div class="nv-counter-window"><span class="nv-counter-value">'+streaks.best+'</span></div><span class="nv-counter-label">Best Streak</span></div>';
+  html += '</div>';
+
+  html += '<div class="nv-cal-card">';
+  html += renderCalendar({
+    year: state.habitCalYear, month: state.habitCalMonth, context: 'habit',
+    markerFn: function(key){
+      var v = log[key];
+      if (v === 'win') return 'win';
+      if (v === 'loss') return 'loss';
+      return '';
+    }
+  });
+  html += '</div>';
+
+  html += '<div class="nv-month-summary">';
+  html += '<span><span class="nv-legend-dot" style="background:var(--win)"></span>'+mstats.win+' win'+(mstats.win===1?'':'s')+'</span>';
+  html += '<span><span class="nv-legend-dot" style="background:var(--loss)"></span>'+mstats.loss+' slip'+(mstats.loss===1?'':'s')+' this month</span>';
+  html += '</div>';
+
+  document.getElementById('nvMain').innerHTML = html;
+}
+
+function renderHabitDayModal(habitId, key){
+  var log = habitLog(habitId);
+  var entry = log[key];
+  var html = '';
+  html += '<div class="nv-sheet-header"><h3>'+fullDateLabel(key)+'</h3><button class="nv-icon-btn" data-action="closeModal">\u00D7</button></div>';
+  html += '<div class="nv-choice-row">';
+  html += '<button class="nv-choice-btn win'+(entry==='win'?' selected':'')+'" data-action="setHabitDay" data-habit="'+habitId+'" data-date="'+key+'" data-value="win"><span class="nv-choice-icon">\u2713</span><span>Win</span></button>';
+  html += '<button class="nv-choice-btn loss'+(entry==='loss'?' selected':'')+'" data-action="setHabitDay" data-habit="'+habitId+'" data-date="'+key+'" data-value="loss"><span class="nv-choice-icon">\u2715</span><span>Slip</span></button>';
+  html += '</div>';
+  if (entry) html += '<button class="nv-link-btn" data-action="clearHabitDay" data-habit="'+habitId+'" data-date="'+key+'">Clear entry</button>';
+  return html;
+}
+
+function renderAddHabitModal(){
+  var html = '';
+  html += '<div class="nv-sheet-header"><h3>Add a habit</h3><button class="nv-icon-btn" data-action="closeModal">\u00D7</button></div>';
+  html += '<input type="text" class="nv-input" id="nvNewHabitName" placeholder="e.g. Smoking, Junk food" maxlength="40" autocomplete="off" />';
+  html += '<button class="nv-btn nv-btn-primary full" data-action="confirmAddHabit">Add habit</button>';
+  return html;
+}
+
+function renderConfirmDeleteHabit(habitId){
+  var habit = getHabit(habitId);
+  var html = '';
+  html += '<div class="nv-confirm-box">';
+  html += '<p>Delete "'+escapeHtml(habit ? habit.name : '')+'"? This removes its whole calendar history and can\'t be undone.</p>';
+  html += '<div class="nv-confirm-actions">';
+  html += '<button class="nv-btn nv-btn-outline" data-action="closeModal">Cancel</button>';
+  html += '<button class="nv-btn nv-btn-danger" data-action="deleteHabit" data-id="'+habitId+'">Delete</button>';
+  html += '</div></div>';
+  return html;
+}
+
+/* =========================================================
+   SCREEN: GYM
+   ========================================================= */
+function renderGymScreen(){
+  var html = '';
+  html += '<p class="nv-eyebrow">Session Log</p><h2 class="nv-screen-title">Gym Log</h2>';
+  html += '<div class="nv-segmented">';
+  html += '<button class="nv-segment'+(state.gymSubTab==='calendar'?' active':'')+'" data-action="setGymSub" data-sub="calendar">Calendar</button>';
+  html += '<button class="nv-segment'+(state.gymSubTab==='boxing'?' active':'')+'" data-action="setGymSub" data-sub="boxing">Boxing</button>';
+  html += '</div>';
+
+  if (state.gymSubTab === 'calendar') html += renderGymCalendarSub();
+  else html += renderBoxingSub();
+
+  document.getElementById('nvMain').innerHTML = html;
+  if (state.gymSubTab === 'boxing') renderTimerFace();
+}
+
+function renderGymCalendarSub(){
+  var count = monthGymCount(state.gymCalYear, state.gymCalMonth);
+  var html = '';
+  html += '<div class="nv-cal-card">';
+  html += renderCalendar({
+    year: state.gymCalYear, month: state.gymCalMonth, context: 'gym',
+    markerFn: function(key){
+      var d = state.gymLog[key];
+      return (d && d.attended) ? 'attended' : '';
+    }
+  });
+  html += '</div>';
+  html += '<div class="nv-month-summary"><span><span class="nv-legend-dot" style="background:var(--brass)"></span>'+count+' day'+(count===1?'':'s')+' this month</span></div>';
+  return html;
+}
+
+function renderGymDayModal(key, focusAdd){
+  var day = gymDay(key);
+  var html = '';
+  html += '<div class="nv-sheet-header"><h3>'+fullDateLabel(key)+'</h3><button class="nv-icon-btn" data-action="closeModal">\u00D7</button></div>';
+  html += '<label class="nv-toggle-row">';
+  html += '<span>Went to the gym</span>';
+  html += '<input type="checkbox" data-action="toggleAttended" data-date="'+key+'" '+(day.attended?'checked':'')+' />';
+  html += '<span class="nv-toggle-visual"></span>';
+  html += '</label>';
+
+  html += '<div class="nv-exercise-list">';
+  if (day.exercises.length === 0){
+    html += '<p class="nv-empty-hint">No exercises logged yet.</p>';
+  } else {
+    day.exercises.forEach(function(ex){
+      html += '<div class="nv-exercise-row"><span>'+escapeHtml(formatExercise(ex))+'</span><button class="nv-icon-btn small" data-action="deleteExercise" data-date="'+key+'" data-exid="'+ex.id+'">\u00D7</button></div>';
+    });
+  }
+  html += '</div>';
+
+  if (focusAdd){
+    html += renderAddExerciseForm(key);
+  } else {
+    html += '<button class="nv-btn nv-btn-outline full" data-action="showAddExercise" data-date="'+key+'">+ Add exercise</button>';
+  }
+  return html;
+}
+
+function renderAddExerciseForm(key){
+  var names = getKnownExerciseNames();
+  var html = '';
+  html += '<input type="text" class="nv-input" id="nvExName" placeholder="Exercise name" maxlength="40" list="nvExerciseNames" autocomplete="off" />';
+  html += '<datalist id="nvExerciseNames">';
+  names.forEach(function(n){ html += '<option value="'+escapeHtml(n)+'">'; });
+  html += '</datalist>';
+  html += '<div class="nv-ex-form-row">';
+  html += '<input type="number" class="nv-input" id="nvExSets" placeholder="Sets" inputmode="numeric" min="0" />';
+  html += '<input type="number" class="nv-input" id="nvExReps" placeholder="Reps" inputmode="numeric" min="0" />';
+  html += '<input type="number" class="nv-input" id="nvExWeight" placeholder="Kg" inputmode="decimal" min="0" step="0.5" />';
+  html += '</div>';
+  html += '<button class="nv-btn nv-btn-primary full" data-action="addExercise" data-date="'+key+'">Add exercise</button>';
+  return html;
+}
+
+/* =========================================================
+   BOXING TIMER
+   ========================================================= */
+function phaseDuration(phase){
+  if (phase === 'ready') return 5;
+  if (phase === 'round') return state.boxing.roundSec;
+  if (phase === 'rest') return state.boxing.restSec;
+  return 0;
+}
+function getRemaining(){
+  if (bt.phase === 'idle') return state.boxing.roundSec;
+  if (bt.phase === 'done') return 0;
+  if (!bt.running) return bt.remainingAtPause != null ? bt.remainingAtPause : phaseDuration(bt.phase);
+  var dur = phaseDuration(bt.phase);
+  var elapsed = (Date.now() - bt.phaseStartTs) / 1000;
+  return Math.max(0, dur - elapsed);
+}
+
+var audioCtx = null;
+function getAudioCtx(){
+  if (!state.boxing.soundOn) return null;
+  try {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    return audioCtx;
+  } catch(e){ return null; }
+}
+function beep(freq, duration, delay, vol){
+  var ctx = getAudioCtx();
+  if (!ctx) return;
+  try {
+    var t0 = ctx.currentTime + (delay||0);
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.frequency.value = freq;
+    osc.type = 'sine';
+    gain.gain.setValueAtTime(vol||0.2, t0);
+    gain.gain.exponentialRampToValueAtTime(0.001, t0 + duration/1000);
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.start(t0); osc.stop(t0 + duration/1000);
+  } catch(e){}
+}
+function vibrate(pattern){
+  try { if (navigator.vibrate) navigator.vibrate(pattern); } catch(e){}
+}
+function soundReady(){ beep(520,120,0,0.16); vibrate(80); }
+function soundRoundStart(){ beep(660,120,0,0.22); beep(880,120,0.14,0.22); beep(1100,220,0.28,0.22); vibrate([180]); }
+function soundRestStart(){ beep(440,320,0,0.18); vibrate([100,60,100]); }
+function soundDone(){ beep(660,150,0,0.2); beep(880,150,0.17,0.2); beep(1100,150,0.34,0.2); beep(1320,320,0.51,0.2); vibrate([200,100,200,100,200]); }
+function soundTick(){ beep(1000,70,0,0.14); }
+
+function startTimerInterval(){
+  clearInterval(bt.interval);
+  bt.interval = setInterval(tick, 250);
+}
+function tick(){
+  if (!bt.running) return;
+  var remaining = getRemaining();
+  var wholeSecLeft = Math.ceil(remaining);
+  if (wholeSecLeft <= 3 && wholeSecLeft >= 1 && wholeSecLeft !== bt.lastTickSecond && remaining > 0.05){
+    bt.lastTickSecond = wholeSecLeft;
+    soundTick();
+  }
+  if (remaining <= 0){
+    advancePhase();
+  }
+  renderTimerFace();
+}
+function advancePhase(){
+  bt.lastTickSecond = null;
+  if (bt.phase === 'ready'){
+    bt.phase = 'round';
+    bt.currentRound = 1;
+    bt.phaseStartTs = Date.now();
+    soundRoundStart();
+  } else if (bt.phase === 'round'){
+    if (bt.currentRound >= state.boxing.rounds){
+      bt.phase = 'done';
+      bt.running = false;
+      clearInterval(bt.interval);
+      soundDone();
+      logBoxingSessionToGym();
+    } else {
+      bt.phase = 'rest';
+      bt.phaseStartTs = Date.now();
+      soundRestStart();
+    }
+  } else if (bt.phase === 'rest'){
+    bt.currentRound += 1;
+    bt.phase = 'round';
+    bt.phaseStartTs = Date.now();
+    soundRoundStart();
+  }
+  renderBoxingControls();
+}
+function timerStart(){
+  if (bt.running) return;
+  if (bt.phase === 'idle' || bt.phase === 'done'){
+    bt.phase = 'ready';
+    bt.currentRound = 1;
+    bt.phaseStartTs = Date.now();
+    bt.running = true;
+    soundReady();
+  } else {
+    var dur = phaseDuration(bt.phase);
+    var elapsed = dur - (bt.remainingAtPause != null ? bt.remainingAtPause : dur);
+    bt.phaseStartTs = Date.now() - elapsed*1000;
+    bt.running = true;
+  }
+  startTimerInterval();
+  renderBoxingControls();
+}
+function timerPause(){
+  if (!bt.running) return;
+  bt.remainingAtPause = getRemaining();
+  bt.running = false;
+  clearInterval(bt.interval);
+  renderBoxingControls();
+}
+function timerReset(){
+  bt.running = false;
+  clearInterval(bt.interval);
+  bt.phase = 'idle';
+  bt.currentRound = 1;
+  bt.phaseStartTs = null;
+  bt.remainingAtPause = null;
+  bt.lastTickSecond = null;
+  renderScreen();
+}
+function logBoxingSessionToGym(){
+  var key = todayKey();
+  var day = gymDay(key);
+  day.attended = true;
+  day.exercises.push({
+    id: 'ex_'+Date.now(),
+    name: 'Boxing session \u2014 ' + state.boxing.rounds + ' rounds',
+    sets: state.boxing.rounds,
+    reps: null,
+    weight: null
+  });
+  persist(KEYS.gymLog);
+}
+
+function ringCircumference(){ return 2*Math.PI*90; }
+function renderTimerFace(){
+  var ring = document.getElementById('nvRingFg');
+  var timeEl = document.getElementById('nvTimerTime');
+  var phaseEl = document.getElementById('nvTimerPhase');
+  var roundEl = document.getElementById('nvTimerRound');
+  if (!ring || !timeEl) return;
+  var remaining = getRemaining();
+  var dur = phaseDuration(bt.phase) || state.boxing.roundSec;
+  var frac = bt.phase === 'idle' ? 1 : (bt.phase === 'done' ? 0 : Math.max(0, remaining/dur));
+  var circ = ringCircumference();
+  ring.style.strokeDasharray = circ;
+  ring.style.strokeDashoffset = circ * (1 - frac);
+  ring.setAttribute('class', 'nv-ring-fg ' + (bt.phase==='idle' ? 'ready' : bt.phase));
+
+  timeEl.textContent = bt.phase === 'idle' ? fmtClock(state.boxing.roundSec) : fmtClock(remaining);
+  var phaseLabels = { idle: 'Ready to start', ready: 'Get ready', round: 'Round', rest: 'Rest', done: 'Complete' };
+  phaseEl.textContent = phaseLabels[bt.phase];
+  phaseEl.setAttribute('class', 'nv-timer-phase ' + bt.phase);
+  roundEl.textContent = (bt.phase==='round'||bt.phase==='rest') ? ('Round '+bt.currentRound+' of '+state.boxing.rounds) : (bt.phase==='done' ? (state.boxing.rounds+' rounds done') : '');
+}
+function renderBoxingControls(){
+  var primary = document.getElementById('nvTimerPrimaryBtn');
+  var resetBtn = document.getElementById('nvTimerResetBtn');
+  if (!primary) { renderTimerFace(); return; }
+  var label = 'Start';
+  if (bt.running) label = 'Pause';
+  else if (bt.phase !== 'idle' && bt.phase !== 'done') label = 'Resume';
+  primary.textContent = label;
+  primary.setAttribute('data-action', bt.running ? 'timerPause' : 'timerStart');
+  if (resetBtn) resetBtn.style.visibility = (bt.phase === 'idle') ? 'hidden' : 'visible';
+  var settingsCard = document.getElementById('nvBoxingSettings');
+  if (settingsCard){
+    var disabled = bt.phase !== 'idle';
+    var steppers = settingsCard.querySelectorAll('.nv-stepper-btn');
+    for (var i=0;i<steppers.length;i++) steppers[i].disabled = disabled;
+  }
+  renderTimerFace();
+}
+
+function renderBoxingSub(){
+  var html = '';
+  html += '<div class="nv-boxing-settings" id="nvBoxingSettings">';
+  html += settingRow('Round', fmtClock(state.boxing.roundSec), 'round', 15);
+  html += settingRow('Rest', fmtClock(state.boxing.restSec), 'rest', 15);
+  html += settingRowRounds();
+  html += '</div>';
+
+  html += '<div class="nv-boxing-head">';
+  html += '<button class="nv-mute-btn" data-action="toggleMute" title="Toggle sound">' + (state.boxing.soundOn ? muteIconOn() : muteIconOff()) + '</button>';
+  html += '</div>';
+
+  html += '<div class="nv-timer-wrap">';
+  html += '<svg class="nv-timer-ring" viewBox="0 0 200 200">';
+  html += '<circle class="nv-ring-bg" cx="100" cy="100" r="90"></circle>';
+  html += '<circle class="nv-ring-fg ready" id="nvRingFg" cx="100" cy="100" r="90"></circle>';
+  html += '</svg>';
+  html += '<div class="nv-timer-center">';
+  html += '<span class="nv-timer-phase idle" id="nvTimerPhase">Ready to start</span>';
+  html += '<span class="nv-timer-time" id="nvTimerTime">'+fmtClock(state.boxing.roundSec)+'</span>';
+  html += '<span class="nv-timer-round" id="nvTimerRound"></span>';
+  html += '</div>';
+  html += '</div>';
+
+  html += '<div class="nv-timer-controls">';
+  html += '<button class="nv-btn-timer-secondary" id="nvTimerResetBtn" data-action="timerReset" style="visibility:hidden">Reset</button>';
+  html += '<button class="nv-btn-timer-primary" id="nvTimerPrimaryBtn" data-action="'+(bt.running?'timerPause':'timerStart')+'">'+(bt.running?'Pause':(bt.phase!=='idle'&&bt.phase!=='done'?'Resume':'Start'))+'</button>';
+  html += '</div>';
+  return html;
+}
+function settingRow(label, display, key, step){
+  return '<div class="nv-setting-row"><span class="nv-setting-label">'+label+' time</span>'
+    + '<div class="nv-stepper">'
+    + '<button class="nv-stepper-btn" data-action="adjBoxingTime" data-key="'+key+'" data-delta="-'+step+'"'+(bt.phase!=='idle'?' disabled':'')+'>\u2212</button>'
+    + '<span class="nv-stepper-value">'+display+'</span>'
+    + '<button class="nv-stepper-btn" data-action="adjBoxingTime" data-key="'+key+'" data-delta="'+step+'"'+(bt.phase!=='idle'?' disabled':'')+'>+</button>'
+    + '</div></div>';
+}
+function settingRowRounds(){
+  return '<div class="nv-setting-row"><span class="nv-setting-label">Rounds</span>'
+    + '<div class="nv-stepper">'
+    + '<button class="nv-stepper-btn" data-action="adjBoxingRounds" data-delta="-1"'+(bt.phase!=='idle'?' disabled':'')+'>\u2212</button>'
+    + '<span class="nv-stepper-value">'+state.boxing.rounds+'</span>'
+    + '<button class="nv-stepper-btn" data-action="adjBoxingRounds" data-delta="1"'+(bt.phase!=='idle'?' disabled':'')+'>+</button>'
+    + '</div></div>';
+}
+function muteIconOn(){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="4 9 4 15 8 15 13 20 13 4 8 9"/><path d="M17 8a5 5 0 0 1 0 8"/></svg>'; }
+function muteIconOff(){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="4 9 4 15 8 15 13 20 13 4 8 9"/><line x1="17" y1="9" x2="22" y2="14"/><line x1="22" y1="9" x2="17" y2="14"/></svg>'; }
+
+/* =========================================================
+   MAIN RENDER DISPATCH
+   ========================================================= */
+function renderScreen(){
+  document.getElementById('nvNavHabits').classList.toggle('active', state.activeTab==='habits');
+  document.getElementById('nvNavGym').classList.toggle('active', state.activeTab==='gym');
+  if (state.activeTab === 'habits') renderHabitsScreen();
+  else renderGymScreen();
+}
+
+/* =========================================================
+   ACTION HANDLERS
+   ========================================================= */
+function handleAction(action, el){
+  if (action === 'setTab'){
+    state.activeTab = el.getAttribute('data-tab');
+    renderScreen();
+    return;
+  }
+  if (action === 'setGymSub'){
+    state.gymSubTab = el.getAttribute('data-sub');
+    renderScreen();
+    return;
+  }
+  if (action === 'toggleHabitEdit'){
+    state.habitEditMode = !state.habitEditMode;
+    renderScreen();
+    return;
+  }
+  if (action === 'selectHabit'){
+    state.activeHabitId = el.getAttribute('data-id');
+    renderScreen();
+    return;
+  }
+  if (action === 'openAddHabit'){
+    openModalFor({ type: 'addHabit' });
+    setTimeout(function(){ var n = document.getElementById('nvNewHabitName'); if (n) n.focus(); }, 80);
+    return;
+  }
+  if (action === 'confirmAddHabit'){
+    var input = document.getElementById('nvNewHabitName');
+    var name = (input.value || '').trim();
+    if (!name) { input.focus(); return; }
+    var id = 'h_'+Date.now();
+    state.habits.push({ id: id, name: name, createdAt: todayKey() });
+    state.habitLogs[id] = {};
+    state.activeHabitId = id;
+    state.habitCalYear = startOfToday().getFullYear();
+    state.habitCalMonth = startOfToday().getMonth();
+    persist(KEYS.habits); persist(KEYS.habitLogs);
+    closeModal();
+    renderScreen();
+    return;
+  }
+  if (action === 'askDeleteHabit'){
+    openModalFor({ type: 'confirmDeleteHabit', habitId: el.getAttribute('data-id') });
+    return;
+  }
+  if (action === 'deleteHabit'){
+    var did = el.getAttribute('data-id');
+    state.habits = state.habits.filter(function(h){ return h.id !== did; });
+    delete state.habitLogs[did];
+    if (state.activeHabitId === did) state.activeHabitId = state.habits.length ? state.habits[0].id : null;
+    state.habitEditMode = false;
+    persist(KEYS.habits); persist(KEYS.habitLogs);
+    closeModal();
+    renderScreen();
+    return;
+  }
+  if (action === 'calNav'){
+    var ctx = el.getAttribute('data-context');
+    var dir = parseInt(el.getAttribute('data-dir'),10);
+    if (ctx === 'habit'){
+      var hm = state.habitCalMonth + dir;
+      var hy = state.habitCalYear;
+      if (hm < 0){ hm = 11; hy--; } else if (hm > 11){ hm = 0; hy++; }
+      state.habitCalMonth = hm; state.habitCalYear = hy;
+    } else {
+      var gm = state.gymCalMonth + dir;
+      var gy = state.gymCalYear;
+      if (gm < 0){ gm = 11; gy--; } else if (gm > 11){ gm = 0; gy++; }
+      state.gymCalMonth = gm; state.gymCalYear = gy;
+    }
+    renderScreen();
+    return;
+  }
+  if (action === 'dayClick'){
+    var context = el.getAttribute('data-context');
+    var date = el.getAttribute('data-date');
+    if (context === 'habit') openModalFor({ type: 'habitDay', habitId: state.activeHabitId, date: date });
+    else openModalFor({ type: 'gymDay', date: date });
+    return;
+  }
+  if (action === 'setHabitDay'){
+    var hId = el.getAttribute('data-habit');
+    var dKey = el.getAttribute('data-date');
+    var val = el.getAttribute('data-value');
+    habitLog(hId)[dKey] = val;
+    persist(KEYS.habitLogs);
+    closeModal();
+    renderScreen();
+    return;
+  }
+  if (action === 'clearHabitDay'){
+    var hId2 = el.getAttribute('data-habit');
+    var dKey2 = el.getAttribute('data-date');
+    delete habitLog(hId2)[dKey2];
+    persist(KEYS.habitLogs);
+    closeModal();
+    renderScreen();
+    return;
+  }
+  if (action === 'toggleAttended'){
+    var gKey = el.getAttribute('data-date');
+    var day = gymDay(gKey);
+    day.attended = el.checked;
+    persist(KEYS.gymLog);
+    renderScreen();
+    return;
+  }
+  if (action === 'showAddExercise'){
+    var addKey = el.getAttribute('data-date');
+    state.currentModal = { type: 'gymDay', date: addKey };
+    var sheet = document.getElementById('nvSheet');
+    sheet.innerHTML = renderGymDayModal(addKey, true);
+    setTimeout(function(){ var n = document.getElementById('nvExName'); if (n) n.focus(); }, 50);
+    return;
+  }
+  if (action === 'addExercise'){
+    var exKey = el.getAttribute('data-date');
+    var nameEl = document.getElementById('nvExName');
+    var name = (nameEl.value || '').trim();
+    if (!name){ nameEl.focus(); return; }
+    var sets = parseFloat(document.getElementById('nvExSets').value) || null;
+    var reps = parseFloat(document.getElementById('nvExReps').value) || null;
+    var weight = parseFloat(document.getElementById('nvExWeight').value) || null;
+    var d = gymDay(exKey);
+    d.exercises.push({ id: 'ex_'+Date.now(), name: name, sets: sets, reps: reps, weight: weight });
+    d.attended = true;
+    persist(KEYS.gymLog);
+    state.currentModal = { type: 'gymDay', date: exKey };
+    document.getElementById('nvSheet').innerHTML = renderGymDayModal(exKey, false);
+    renderScreen();
+    return;
+  }
+  if (action === 'deleteExercise'){
+    var delKey = el.getAttribute('data-date');
+    var exId = el.getAttribute('data-exid');
+    var dd = gymDay(delKey);
+    dd.exercises = dd.exercises.filter(function(e){ return e.id !== exId; });
+    persist(KEYS.gymLog);
+    document.getElementById('nvSheet').innerHTML = renderGymDayModal(delKey, false);
+    renderScreen();
+    return;
+  }
+  if (action === 'closeModal'){
+    closeModal();
+    return;
+  }
+  if (action === 'adjBoxingTime'){
+    if (bt.phase !== 'idle') return;
+    var key2 = el.getAttribute('data-key');
+    var delta = parseInt(el.getAttribute('data-delta'),10);
+    var field = key2 === 'round' ? 'roundSec' : 'restSec';
+    var next = state.boxing[field] + delta;
+    next = Math.max(15, Math.min(600, next));
+    state.boxing[field] = next;
+    persist(KEYS.boxing);
+    renderScreen();
+    return;
+  }
+  if (action === 'adjBoxingRounds'){
+    if (bt.phase !== 'idle') return;
+    var d2 = parseInt(el.getAttribute('data-delta'),10);
+    state.boxing.rounds = Math.max(1, Math.min(20, state.boxing.rounds + d2));
+    persist(KEYS.boxing);
+    renderScreen();
+    return;
+  }
+  if (action === 'toggleMute'){
+    state.boxing.soundOn = !state.boxing.soundOn;
+    persist(KEYS.boxing);
+    renderScreen();
+    return;
+  }
+  if (action === 'timerStart'){ timerStart(); return; }
+  if (action === 'timerPause'){ timerPause(); return; }
+  if (action === 'timerReset'){ timerReset(); return; }
+}
+
+document.getElementById('nvApp').addEventListener('click', function(e){
+  if (e.target.id === 'nvOverlay'){ closeModal(); return; }
+  var el = e.target.closest('[data-action]');
+  if (!el) return;
+  if (el.tagName === 'INPUT') return;
+  handleAction(el.getAttribute('data-action'), el);
+});
+document.getElementById('nvApp').addEventListener('change', function(e){
+  var el = e.target;
+  if (el.matches('[data-action="toggleAttended"]')) handleAction('toggleAttended', el);
+});
+
+/* =========================================================
+   INIT
+   ========================================================= */
+function boot(){
+  document.getElementById('nvMain').innerHTML = '<div class="nv-empty"><p>Loading your log\u2026</p></div>';
+  loadAll().then(function(){
+    renderScreen();
+  });
+}
+boot();
+
+})();
+</script>
+
+</body>
+</html>
